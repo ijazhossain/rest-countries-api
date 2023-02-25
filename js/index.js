@@ -32,10 +32,17 @@ const loadCountryDetail = async (code) => {
 
 const displaySingleCountry = data => {
     const singleCountryContainer = document.getElementById('single-country-container');
-    singleCountryContainer.innerHTML = `
+    singleCountryContainer.textContent = '';
+    const singleCountry = document.createElement('div');
+    singleCountry.className = 'country'
+    singleCountry.style.textAlign = 'center'
+    singleCountry.style.margin = '50px';
+    singleCountry.style.backgroundColor = 'lightskyblue';
+    singleCountry.innerHTML = `
     <img src="${data.flags.png}">
         <h3>Name:${data.name.common}</h3>
         <p>Population:${data.population} </p>
     `;
+    singleCountryContainer.appendChild(singleCountry);
 }
 loadCountries()
